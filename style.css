@@ -19,6 +19,7 @@ html, body{
     position:relative;
     box-sizing: border-box;
     padding:40px;
+    overflow-y:auto;
 }
 
 /* VIDEO */
@@ -101,11 +102,45 @@ html, body{
 h1{
     font-family: "Cascadia Code", monospace;
     font-size:30pt;
-    color:#0e5985;
+    color:#1683c2;
+}
+
+a h2{
+    font-family: "Cascadia Code", monospace;
+    font-size:20pt;
+    color:#2974a0;
+    text-decoration: underline;
+}
+
+h2{
+    font-family: "Cascadia Code", monospace;
+    font-size:20pt;
+    color:#57bbf5;
 }
 
 p{
     font-family: "Cascadia Code", monospace;
-    font-size:11pt;
+    font-size:12pt;
+    color:#ffffff;
+}
+
+#select{
+    position:fixed;
+    transform:translate(-50%, -50%);
+    border:5px solid #126da1;
+    background-color:#0e2731;
+    left:50%;
+    top:50%;
+    padding:30px;
+    box-shadow:0px 0px 100px 20px #0e2731;
+}
+
+#select button{
+    border:5px solid #126da1;
+    background-color:#164c61;
+    padding:10px;
+    font-family: "Cascadia Code", monospace;
+    font-size:14pt;
+    padding:4px;
     color:#ffffff;
 }

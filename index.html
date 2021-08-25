@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel=stylesheet href=style.css>
+  <link rel=icon href=assets/favicon.png type="image/png">
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
@@ -10,17 +11,26 @@
 </head>
 
 <body>
+    <!-- Camera video element -->
     <video id="input_video"></video>
+
+    <!-- Main window -->
     <div class="container">
+        <!-- Logo, score and credits -->
         <div id=left_container>
             <img src=assets/logo.png id=logo>\
-            <h1>score: <span id=score style="color:white">0</span></h1>  
+            <h1>score: <span id=score style="color:white">0</span></h1>
+            <a href="credits.html"><h2>credits</h2></a>
         </div>
+
+        <!-- Game block -->
         <div id=arrow_container>
             <img src=assets/circles.png style="position:absolute;bottom:0;left:0;width:100%;">
             <div id=arrow_parent style="display:contents">
             </div>
         </div>
+
+        <!-- Video output -->
         <div id="output_wrapper_wrapper">
             <div id="output_wrapper">
                 <canvas id="output_canvas"></canvas>
@@ -28,11 +38,35 @@
             <h1>gesture: <span id=gesture style="color:white">loading</span></h1>    
         </div>
     </div>
+
+    <!-- Song selection -->
+    <div id=select>
+        <h1>rhythmvision</h1>
+        <h2>Swing arms in direction of arrows.</h2>
+        <h2>Select a song:</h2>
+        <button id="song-arroz" onclick="selectSong('arroz')">Arroz con Pollo</button>
+        <button id="song-cold" onclick="selectSong('cold')">Cold Funk</button>
+        <button id="song-builder" onclick="selectSong('builder')">The Builder</button>
+        <!--<button id="song-titan">Strength of the Titans</button>
+        <button id="song-show">Welcome to the Show</button>-->
+    </div>
+
+    <!-- Audio -->
     <audio id="track">
-        <source src="songs/the-builder.mp3" type="audio/mp3">
+        <source id="track-source" src="" type="audio/mp3">
     </audio>
+
+    <!-- Pose estimation -->
     <script src=scripts/pose.js></script>
-    <script src=songs/the_builder_old.js></script>
+
+    <!-- Song track files -->
+    <script src=songs/the_builder.js></script>
+    <script src=songs/arroz_con_pollo.js></script>
+    <script src=songs/cold_funk.js></script>
+
+    <script src=scripts/select.js></script>
+
+    <!-- DDR game -->
     <script src=scripts/ddr.js></script>
 </body>
 </html>

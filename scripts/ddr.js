@@ -82,15 +82,15 @@ let score = 0;
 
 async function play(){
     // play music
-    document.getElementById("track").play();
+    audio.play();
     for (let note of track){
         // sleep
         await new Promise(r => setTimeout(r, note[1]));
         // create arrow
         new Arrow(note[0]);
     }
-    await new Promise(r => setTimeout(r, 10000));
-    start();
+    await new Promise(r => setTimeout(r, 5000));
+    reset();
 }
 
 async function start(){
@@ -108,4 +108,3 @@ async function start(){
         await new Promise(r => setTimeout(r, 1000)); 
     }
 }
-start();
