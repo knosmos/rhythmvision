@@ -52,14 +52,15 @@ class Message{
 async function play(){
     // play music
     document.getElementById("track").play();
-    let current_delay = new Date();
+    let start_time = Date.now();
+    let accumulated_time = 0;
     let old_gesture = "none";
     while (true){
         if (old_gesture != gesture & gesture != "none"){
             new Arrow(gesture[0]);
-            let new_delay = new Date();
-            let note_delay = new_delay - current_delay;
-            current_delay = new_delay;
+            let current_time = Date.now();
+            let note_delay = current_time - (start_time + accumulated_time);
+            accumulated_time += note_delay;
             old_gesture = gesture;
 
             track.push([gesture[0], note_delay]);

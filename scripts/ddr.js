@@ -31,6 +31,7 @@ class Arrow{
             else{
                 new Message("miss!");
                 score -= 2;
+                score = Math.max(0, score);
             }
             document.getElementById("score").innerHTML = score;
             document.getElementById("arrow_parent").removeChild(this.elem);
@@ -81,11 +82,37 @@ class Cloud{
 let score = 0;
 
 async function play(){
-    // play music
-    audio.play();
+    // play music (4 second delay to match up the timings)
+    setTimeout(()=>{
+        audio.play();
+    },4000);
+
+    // ready set go
+    setTimeout(()=>{
+        new Message("Ready!");
+    },1000);
+
+    setTimeout(()=>{
+        new Message("Set!");
+    },2000);
+
+    setTimeout(()=>{
+        new Message("Dance!");
+    },3000);
+
+    // Start falling notes
+
+    let start_time = Date.now(); // used to account for lag
+    let accumulated_time = 0;
+    let current_time;
     for (let note of track){
         // sleep
-        await new Promise(r => setTimeout(r, note[1]));
+        current_time = Date.now();
+        let drift = current_time - (start_time + accumulated_time);
+        let delay = note[1] - drift;
+        accumulated_time += note[1];
+        console.log(drift);
+        await new Promise(r => setTimeout(r, delay));
         // create arrow
         new Arrow(note[0]);
     }
