@@ -4,6 +4,7 @@ html, body{
     padding:0;
     height:100%;
     background-color:#0e2731;
+    overflow:hidden;
 }
 
 .container{
@@ -85,7 +86,7 @@ html, body{
 
 .cloud{
     position:absolute;
-    bottom:0%;
+    bottom:-5%;
     transform: translate(-50%, -50%);
     opacity:1;
     transition:1s all linear;
@@ -133,6 +134,7 @@ p{
     top:50%;
     padding:30px;
     box-shadow:0px 0px 100px 20px #0e2731;
+    max-width:50%;
 }
 
 #select button{
@@ -141,6 +143,6 @@ p{
     padding:10px;
     font-family: "Cascadia Code", monospace;
     font-size:14pt;
-    padding:4px;
+    margin:4px;
     color:#ffffff;
 }

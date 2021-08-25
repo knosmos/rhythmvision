@@ -5,7 +5,8 @@ let audio;
 let songs = {
     "arroz":[track_arroz,"songs/arroz-con-pollo.mp3"],
     "builder":[track_builder,"songs/the-builder.mp3"],
-    "cold":[track_cold,"songs/cold-funk.mp3"]
+    "cold":[track_cold,"songs/cold-funk.mp3"],
+    "show":[track_welcome,"songs/welcome-to-the-show.mp3"]
 }
 
 function selectSong(song){
