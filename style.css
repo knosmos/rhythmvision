@@ -1,0 +1,105 @@
+/* LAYOUT */
+html, body{
+    margin:0;
+    padding:0;
+    height:100%;
+    background-color:#0e2731;
+}
+
+.container{
+    display:grid;
+    grid-template-columns: 40% 20% 40%;
+    height:100%;
+    width: 100%;
+    place-items: center;
+}
+
+#left_container{
+    width:100%;
+    position:relative;
+    box-sizing: border-box;
+    padding:40px;
+}
+
+/* VIDEO */
+
+#input_video {
+    display:none;
+    /*width:100%;
+    transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);*/
+}
+
+#output_wrapper_wrapper{
+    width:100%;
+    position:relative;
+    box-sizing: border-box;
+    padding:40px;
+}
+
+#output_wrapper{
+    width:100%;
+    position:relative;
+}
+
+#output_canvas{
+    border:10px solid #0a3e5c;
+    width:100%;
+    height:100%;
+    transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+}
+
+/* GAME */
+
+#arrow_container{
+    width:100%;
+    height:100%;
+    background-image:url("assets/background.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    position:relative;
+}
+
+.arrow{
+    position:absolute;
+    bottom:100%;
+    transition:bottom 4s linear;
+    width:23%;
+    image-rendering: pixelated;
+}
+
+.message{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Cascadia Code", monospace;
+    font-size:30pt;
+    color:#ffd258;
+    opacity:1;
+    transition:1s all linear;
+}
+
+.cloud{
+    position:absolute;
+    bottom:0%;
+    transform: translate(-50%, -50%);
+    opacity:1;
+    transition:1s all linear;
+    width:25%;
+    image-rendering: pixelated;
+}
+
+/* MISC */
+
+#logo{
+    width:100%;
+}
+
+h1{
+    font-family: "Cascadia Code", monospace;
+    font-size:30pt;
+    color:#0e5985;
+}
