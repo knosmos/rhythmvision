@@ -103,3 +103,9 @@ h1{
     font-size:30pt;
     color:#0e5985;
 }
+
+p{
+    font-family: "Cascadia Code", monospace;
+    font-size:11pt;
+    color:#ffffff;
+}
