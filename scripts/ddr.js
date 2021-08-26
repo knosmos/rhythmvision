@@ -70,7 +70,7 @@ class Cloud{
         parent.appendChild(this.elem);
 
         setTimeout(()=>{
-            this.elem.style.transform = "translate(-50%, -50%) scale(2.0)";
+            this.elem.style.transform = "translate(-50%, -50%) scale(5.0)";
             this.elem.style.opacity = "0%";
         },10);
         setTimeout(()=>{

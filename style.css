@@ -106,11 +106,12 @@ h1{
     color:#1683c2;
 }
 
-a h2{
+h2 a{
     font-family: "Cascadia Code", monospace;
     font-size:20pt;
     color:#2974a0;
     text-decoration: underline;
+    width:auto;
 }
 
 h2{
