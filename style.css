@@ -87,6 +87,19 @@ html, body{
     text-align:center;
 }
 
+.large-message{
+    position:absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Cascadia Code", "Trebuchet MS", Futura, monospace;
+    font-size:50pt;
+    color:#7dbfeb;
+    opacity:1;
+    transition:1s all linear;
+    text-align:center;
+}
+
 .cloud{
     position:absolute;
     bottom:-5%;

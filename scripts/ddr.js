@@ -26,12 +26,31 @@ class Arrow{
             if (gesture[0] == this.key){
                 new Message("fantastic!");
                 new Cloud(this.left);
-                score += 10;
+                score += 10 * multiplier;
+                consecutive += 1;
+                if (consecutive == 24){
+                    multiplier = 5;
+                    new LargeMessage("8x");
+                }
+                else if (consecutive == 12){
+                    multiplier = 4;
+                    new LargeMessage("6x");
+                }
+                else if (consecutive == 6){
+                    multiplier = 3;
+                    new LargeMessage("4x");
+                }
+                else if (consecutive == 3){
+                    multiplier = 2;
+                    new LargeMessage("2x");
+                }
             }
             else{
                 new Message("miss!");
-                score -= 2;
-                score = Math.max(0, score);
+                // score -= 2;
+                // score = Math.max(0, score);
+                consecutive = 0;
+                multiplier = 1;
             }
             document.getElementById("score").innerHTML = score;
             document.getElementById("arrow_parent").removeChild(this.elem);
@@ -59,6 +78,26 @@ class Message{
     }
 }
 
+class LargeMessage{
+    constructor(text){
+        this.text = text;
+
+        let parent = document.getElementById("arrow_parent");
+        this.elem = document.createElement("div");
+        this.elem.innerHTML = this.text;
+        this.elem.className = "large-message";
+        parent.appendChild(this.elem);
+
+        setTimeout(()=>{
+            this.elem.style.transform = "translate(-50%, -50%) scale(1.5)";
+            this.elem.style.opacity = "0%";
+        },10);
+        setTimeout(()=>{
+            document.getElementById("arrow_parent").removeChild(this.elem);
+        },5000);
+    }
+}
+
 class Cloud{
     constructor(left){
         this.left = `${parseInt(left.slice(0,2))+25/2}%`;
@@ -80,6 +119,8 @@ class Cloud{
 }
 
 let score = 0;
+let consecutive = 0;
+let multiplier = 1;
 
 async function play(){
     // play music (4 second delay to match up the timings)
@@ -116,7 +157,7 @@ async function play(){
         // create arrow
         new Arrow(note[0]);
     }
-    await new Promise(r => setTimeout(r, 5000));
+    await new Promise(r => setTimeout(r, 8000));
     reset();
 }
 
