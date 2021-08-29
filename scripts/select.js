@@ -1,7 +1,7 @@
 // Song selection
 let selectElem = document.getElementById("select");
 let track;
-let audio;
+let audio = new Audio("songs/background.mp3");
 let songs = {
     "arroz":[track_arroz,"songs/arroz-con-pollo.mp3"],
     "airship":[track_airship,"songs/airship.mp3"],
@@ -15,6 +15,7 @@ let songs = {
 function selectSong(song){
     track = songs[song][0];
     selectElem.style.display = "none";
+    audio.pause();
     audio = new Audio(songs[song][1]);
     start();
 }
@@ -22,4 +23,17 @@ function selectSong(song){
 function reset(){
     selectElem.style.display = "block";
     audio.pause();
+    audio = new Audio("songs/background.mp3");
+    audio.play();
 }
+
+async function backgroundmusic(){
+    while (true){
+        if (loaded){
+            reset();
+            break;
+        }
+        await new Promise(r => setTimeout(r, 1000)); 
+    }
+}
+backgroundmusic();
