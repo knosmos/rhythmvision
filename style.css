@@ -79,9 +79,10 @@ html, body{
     transform: translate(-50%, -50%);
     font-family: "Cascadia Code", monospace;
     font-size:30pt;
-    color:#ffd258;
+    color:#ffffff;
     opacity:1;
     transition:1s all linear;
+    text-align:center;
 }
 
 .cloud{
@@ -126,11 +127,23 @@ p{
     color:#ffffff;
 }
 
+button{
+    border:5px solid #126da1;
+    background-color:#164c61;
+    padding:10px;
+    font-family: "Cascadia Code", monospace;
+    font-size:14pt;
+    margin:4px;
+    color:#ffffff;
+    cursor:pointer;
+    display:block;
+}
+
 #select{
     position:fixed;
     transform:translate(-50%, -50%);
     border:5px solid #126da1;
-    background-color:#0e2731;
+    background-color:#164052;
     left:50%;
     top:50%;
     padding:30px;
@@ -139,11 +152,5 @@ p{
 }
 
 #select button{
-    border:5px solid #126da1;
-    background-color:#164c61;
-    padding:10px;
-    font-family: "Cascadia Code", monospace;
-    font-size:14pt;
-    margin:4px;
-    color:#ffffff;
+    display: inline-block;
 }
