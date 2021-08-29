@@ -9,7 +9,8 @@ let songs = {
     "voxel":[track_voxel,"songs/voxel-revolution.mp3"],
     "cold":[track_cold,"songs/cold-funk.mp3"],
     "show":[track_welcome,"songs/welcome-to-the-show.mp3"],
-    "desert":[track_desert,"songs/desert-of-lost-souls.mp3"]
+    "desert":[track_desert,"songs/desert-of-lost-souls.mp3"],
+    "maple":[track_maple,"songs/maple-leaf-rag.mp3"]
 }
 
 function selectSong(song){
