@@ -4,6 +4,7 @@ let track;
 let audio;
 let songs = {
     "arroz":[track_arroz,"songs/arroz-con-pollo.mp3"],
+    "airship":[track_airship,"songs/airship.mp3"],
     "builder":[track_builder,"songs/the-builder.mp3"],
     "voxel":[track_voxel,"songs/voxel-revolution.mp3"],
     "cold":[track_cold,"songs/cold-funk.mp3"],

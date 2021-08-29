@@ -1,4 +1,5 @@
 let track = [];
+let audio = "";
 
 class Arrow{
     constructor(key){
@@ -51,7 +52,7 @@ class Message{
 
 async function play(){
     // play music
-    document.getElementById("track").play();
+    audio.play();
     let start_time = Date.now();
     let accumulated_time = 0;
     let old_gesture = "none";
@@ -82,4 +83,14 @@ async function start(){
         await new Promise(r => setTimeout(r, 1000)); 
     }
 }
-start();
+
+function setsong(){
+    let filename = document.getElementById("songname").value;
+    audio = new Audio(filename);
+    start();
+}
+
+function copytrack(){
+    let track_str = JSON.stringify(track);
+    navigator.clipboard.writeText(track_str);
+}

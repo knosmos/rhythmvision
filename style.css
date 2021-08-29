@@ -96,10 +96,23 @@ html, body{
     image-rendering: pixelated;
 }
 
-/* IMAGE */
+/* MISC */
 
 #logo{
     width:100%;
+}
+
+#songname{
+    border:4px solid #c7c7c7;
+    background-color:#ffffff;
+    padding:10px;
+    font-family: "Cascadia Code", monospace;
+    font-size:14pt;
+    margin:10px;
+    color:#000000;
+    cursor:pointer;
+    display:block;
+    border-radius:10px;
 }
 
 /* TEXT */
