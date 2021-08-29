@@ -9,15 +9,27 @@ let y_threshold = 0.2;
 let gesture = "none";
 let loaded = false;
 
+let showCamera = true; // whether to overlay camera view on pose detection canvas
+
 function onResults(results) {
     canvasCtx.save();
     canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
-    canvasCtx.drawImage(
-        results.image, 0, 0, canvasElement.width, canvasElement.height);
-    drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS,
+
+    if (showCamera){
+        canvasCtx.drawImage(
+            results.image, 0, 0, canvasElement.width, canvasElement.height);    
+        drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS,
             {color: '#FF147D', lineWidth: 2});
-    //drawLandmarks(canvasCtx, results.poseLandmarks,
-    //        {color: '#FF0000', lineWidth: 1});
+    }
+    else{
+        canvasCtx.rect(0, 0, canvasElement.width, canvasElement.height);
+        canvasCtx.fillStyle = "#042736";
+        canvasCtx.fill();
+        drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS,
+            {color: '#FF147D', lineWidth: 4});  
+        // drawLandmarks(canvasCtx, results.poseLandmarks,
+        //     {color: '#FF147D', lineWidth: 1});      
+    }
     canvasCtx.restore();
 
     // pose detection

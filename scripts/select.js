@@ -20,4 +20,5 @@ function selectSong(song){
 
 function reset(){
     selectElem.style.display = "block";
+    audio.pause();
 }
