@@ -5,6 +5,7 @@ html, body{
     height:100%;
     background-color:#0e2731;
     overflow:hidden;
+    font-family: "Cascadia Code", "Trebuchet MS", Futura, monospace;
 }
 
 .container{
@@ -78,7 +79,7 @@ html, body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: "Cascadia Code", monospace;
+    font-family: "Cascadia Code", "Trebuchet MS", Futura, monospace;
     font-size:30pt;
     color:#ffffff;
     opacity:1;
@@ -106,7 +107,6 @@ html, body{
     border:4px solid #c7c7c7;
     background-color:#ffffff;
     padding:10px;
-    font-family: "Cascadia Code", monospace;
     font-size:14pt;
     margin:10px;
     color:#000000;
@@ -118,27 +118,24 @@ html, body{
 /* TEXT */
 
 h1{
-    font-family: "Cascadia Code", monospace;
     font-size:30pt;
     color:#1683c2;
 }
 
 h2{
-    font-family: "Cascadia Code", monospace;
     font-size:20pt;
     color:#57bbf5;
 }
 
 p{
-    font-family: "Cascadia Code", monospace;
     font-size:10pt;
     color:#ffffff;
 }
 
-label{
-    font-family: "Cascadia Code", monospace;
-    font-size:12pt;
-    color:#ffffff;
+label, input[type=checkbox]{
+    font-family: "Cascadia Code", "Trebuchet MS", Futura, monospace;
+    font-size:14pt;
+    color:#98d1ff;
 }
 
 /* SELECT */
@@ -146,7 +143,7 @@ button{
     border:4px solid #1c88c7;
     background-color:#0f3c4e;
     padding:10px;
-    font-family: "Cascadia Code", monospace;
+    font-family: "Cascadia Code", "Trebuchet MS", Futura, monospace;
     font-size:14pt;
     margin:10px;
     color:#ffffff;

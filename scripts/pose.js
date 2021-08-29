@@ -5,11 +5,14 @@ let gestureDisplay = document.getElementById('gesture');
 
 let x_threshold = 0.2;
 let y_threshold = 0.2;
+let squat_threshold = 1.25;
 
 let gesture = "none";
 let loaded = false;
 
 let showCamera = true; // whether to overlay camera view on pose detection canvas
+
+let squatForDown = false; // whether down motion is triggered by squatting
 
 function onResults(results) {
     canvasCtx.save();
@@ -41,8 +44,13 @@ function onResults(results) {
         let rightHand = results.poseLandmarks[16];
         let rightShoulder = results.poseLandmarks[12];
 
+        let rightKnee = results.poseLandmarks[26];
+        let leftKnee = results.poseLandmarks[25];
+
         let x_diff = (leftHand.x - leftShoulder.x) + (rightHand.x - rightShoulder.x);
         let y_diff = (leftHand.y - leftShoulder.y) + (rightHand.y - rightShoulder.y);
+        let s_diff = (leftKnee.y - leftShoulder.y) + (rightKnee.y - rightShoulder.y);
+        console.log(s_diff);
 
         gesture = "none";
         if (x_diff > x_threshold){
@@ -51,12 +59,15 @@ function onResults(results) {
         else if (-x_diff > x_threshold){
             gesture = "right";
         }
-        else if (y_diff > y_threshold){
-            gesture = "down";
-        }
         else if (-y_diff > y_threshold){
             gesture = "up";
         }
+        else if (squatForDown && s_diff < squat_threshold){
+            gesture = "down";
+        }
+        else if (!squatForDown && y_diff > y_threshold){
+            gesture = "down";
+        }        
         
         gestureDisplay.innerHTML = gesture;        
     }

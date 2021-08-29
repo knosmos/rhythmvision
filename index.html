@@ -21,8 +21,18 @@
             <img src=assets/logo.png id=logo>\
             <h1>score: <span id=score style="color:white">0</span></h1>
             <button onclick='location.href="credits.html"'>credits</button>
-            <input type="checkbox" name="cameraview" id="cameraview" checked onchange="showCamera = this.checked">
-            <label for="cameraview">Show Camera View</label>
+            <br><br>
+            <label for="cameraview">
+                <input type="checkbox" name="cameraview" id="cameraview" checked onchange="showCamera = this.checked">
+                Show Camera View
+            </label>
+            <br>
+            <label for="squatfordown">
+                <input type="checkbox" name="squatfordown" id="squatfordown" onchange="squatForDown = this.checked">
+                Squat for Down Motion
+            </label>
+            <br><br>
+            <p style="color:rgb(59, 101, 150)">a game by Jieruei Chang @knosmos</p>
         </div>
 
         <!-- Game block -->
@@ -44,7 +54,7 @@
     <!-- Song selection -->
     <div id=select>
         <h1>rhythmvision</h1>
-        <h2>Swing arms in direction of arrows.</h2>
+        <h2 style="color:white">Swing arms in direction of arrows.</h2>
         <h2>Select a song:</h2>
         <button id="song-arroz" onclick="selectSong('arroz')">Arroz con Pollo</button>
         <button id="song-builder" onclick="selectSong('builder')">The Builder</button>
