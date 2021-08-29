@@ -14,9 +14,10 @@ let songs = {
 
 function selectSong(song){
     console.log(playing);
-    if (!playing){
+    if (!playing && loaded){
         track = songs[song][0];
-        selectElem.style.display = "none";
+        // selectElem.style.display = "none";
+        selectElem.style.top = "-50%";
         audio.pause();
         audio = new Audio(songs[song][1]);
         start();        
@@ -24,7 +25,8 @@ function selectSong(song){
 }
 
 function reset(){
-    selectElem.style.display = "block";
+    // selectElem.style.display = "block";
+    selectElem.style.top = "50%";
     audio.pause();
     audio = new Audio("songs/background.mp3");
     audio.play();
