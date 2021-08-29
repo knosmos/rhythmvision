@@ -13,11 +13,14 @@ let songs = {
 }
 
 function selectSong(song){
-    track = songs[song][0];
-    selectElem.style.display = "none";
-    audio.pause();
-    audio = new Audio(songs[song][1]);
-    start();
+    console.log(playing);
+    if (!playing){
+        track = songs[song][0];
+        selectElem.style.display = "none";
+        audio.pause();
+        audio = new Audio(songs[song][1]);
+        start();        
+    }
 }
 
 function reset(){
@@ -29,7 +32,7 @@ function reset(){
 
 async function backgroundmusic(){
     while (true){
-        if (loaded){
+        if (loaded && !playing){
             reset();
             break;
         }

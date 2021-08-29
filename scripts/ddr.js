@@ -121,6 +121,7 @@ class Cloud{
 let score = 0;
 let consecutive = 0;
 let multiplier = 1;
+let playing = false;
 
 async function play(){
     // play music (4 second delay to match up the timings)
@@ -152,17 +153,19 @@ async function play(){
         let drift = current_time - (start_time + accumulated_time);
         let delay = note[1] - drift;
         accumulated_time += note[1];
-        console.log(drift);
+        // console.log(drift);
         await new Promise(r => setTimeout(r, delay));
         // create arrow
         new Arrow(note[0]);
     }
+    playing = false;
     await new Promise(r => setTimeout(r, 8000));
     reset();
 }
 
 async function start(){
     score = 0;
+    playing = true;
     while (true){
         if (loaded){
             new Message("raise hands to play");

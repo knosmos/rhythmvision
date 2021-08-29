@@ -50,7 +50,7 @@ function onResults(results) {
         let x_diff = (leftHand.x - leftShoulder.x) + (rightHand.x - rightShoulder.x);
         let y_diff = (leftHand.y - leftShoulder.y) + (rightHand.y - rightShoulder.y);
         let s_diff = (leftKnee.y - leftShoulder.y) + (rightKnee.y - rightShoulder.y);
-        console.log(s_diff);
+        //console.log(s_diff);
 
         gesture = "none";
         if (x_diff > x_threshold){
