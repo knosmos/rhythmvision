@@ -3,8 +3,8 @@ let canvasElement = document.getElementById('output_canvas');
 let canvasCtx = canvasElement.getContext('2d');
 let gestureDisplay = document.getElementById('gesture');
 
-let x_threshold = 0.2;
-let y_threshold = 0.4;
+let x_threshold = 0.15;
+let y_threshold = 0.15;
 let squat_threshold = 1.25;
 
 let gesture = "none";
