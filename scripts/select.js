@@ -37,6 +37,7 @@ async function backgroundmusic(){
     while (true){
         if (loaded && !playing){
             reset();
+            document.getElementById("splash").style.display = "none";
             break;
         }
         await new Promise(r => setTimeout(r, 1000)); 

@@ -130,16 +130,23 @@ async function play(){
     },4000);
 
     // ready set go
+    let dingsound = new Audio("assets/chime.wav");
     setTimeout(()=>{
         new Message("Ready!");
+        dingsound.currentTime = 0;
+        dingsound.play();
     },1000);
 
     setTimeout(()=>{
         new Message("Set!");
+        dingsound.currentTime = 0;
+        dingsound.play();
     },2000);
 
     setTimeout(()=>{
         new Message("Dance!");
+        dingsound.currentTime = 0;
+        dingsound.play();
     },3000);
 
     // Start falling notes
