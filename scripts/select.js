@@ -1,5 +1,6 @@
 // Song selection
 let selectElem = document.getElementById("select");
+let selectMenuOpen = true;
 let track;
 let audio = new Audio("songs/background.mp3");
 let songs = {
@@ -19,6 +20,7 @@ function selectSong(song){
         track = songs[song][0];
         // selectElem.style.display = "none";
         selectElem.style.top = "-50%";
+        selectMenuOpen = false;
         audio.pause();
         audio = new Audio(songs[song][1]);
         start();        
@@ -28,6 +30,7 @@ function selectSong(song){
 function reset(){
     // selectElem.style.display = "block";
     selectElem.style.top = "50%";
+    selectMenuOpen = true;
     audio.pause();
     audio = new Audio("songs/background.mp3");
     audio.play();
@@ -44,3 +47,19 @@ async function backgroundmusic(){
     }
 }
 backgroundmusic();
+
+// settings menu
+let settingsElem = document.getElementById("settings");
+settingsElem.style.top = "-50%";
+
+function openSettings(){
+    selectElem.style.top = "-50%";
+    settingsElem.style.top = "50%";
+}
+
+function closeSettings(){
+    if (selectMenuOpen){
+        selectElem.style.top = "50%";
+    }
+    settingsElem.style.top = "-50%";
+}

@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <title>rhythmvision</title>
   <link rel=stylesheet href=style.css>
   <link rel=icon href=assets/favicon.png type="image/png">
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
@@ -16,22 +17,12 @@
 
     <!-- Main window -->
     <div class="container">
-        <!-- Logo, score and credits -->
+        <!-- Logo, score and settings -->
         <div id=left_container>
             <img src=assets/logo.png id=logo>\
             <h1>score: <span id=score style="color:white">0</span></h1>
-            <button onclick='location.href="credits.html"'>credits</button>
-            <button onclick='location.href="https:\/\/github.com/knosmos/rhythmvision"'>source code</button>
             <br><br>
-            <label for="cameraview">
-                <input type="checkbox" name="cameraview" id="cameraview" checked onchange="showCamera = this.checked">
-                Show Camera View
-            </label>
-            <br>
-            <label for="squatfordown">
-                <input type="checkbox" name="squatfordown" id="squatfordown" onchange="squatForDown = this.checked">
-                Squat for Down Motion
-            </label>
+            <button onclick='openSettings()'>settings</button>
             <br><br>
             <p style="color:rgb(59, 101, 150)">a game by Jieruei Chang @knosmos</p>
         </div>
@@ -65,6 +56,38 @@
         <button id="song-maple" onclick="selectSong('maple')">Maple Leaf Rag</button>
         <button id="song-show" onclick="selectSong('show')">Welcome to the Show</button>
         <button id="song-desert" onclick="selectSong('desert')">Desert of Lost Souls</button>
+    </div>
+
+    <!-- Settings -->
+    <div id=settings>
+        <h1>settings</h1>
+        <hr>
+        <h2>graphics</h2>
+        <label for="cameraview">
+            <input type="checkbox" name="cameraview" id="cameraview" checked onchange="showCamera = this.checked">
+            Show Camera View
+        </label>
+        <label for="reducedgraphics">
+            <input type="checkbox" name="reducedgraphics" id="reducedgraphics" onchange="">
+            Reduced Graphics Mode
+        </label>
+        <hr>
+        <h2>motion</h2>
+        <label for="squatfordown">
+            <input type="checkbox" name="squatfordown" id="squatfordown" onchange="squatForDown = this.checked">
+            Squat for Down Motion
+        </label>
+        <label for="kickforlateral">
+            <input type="checkbox" name="kickforlateral" id="kickforlateral" onchange="">
+            Kick for Lateral Motion
+        </label>
+        <hr>
+        <h2>links</h2>
+        <a href="credits.html">credits</a> • 
+        <a href="https://github.com/knosmos/rhythmvision" target="_blank">source code</a> • 
+        <a href="https://github.com/knosmos" target="_blank">other projects</a>
+        <hr>
+        <button onclick='closeSettings()'>accept settings</button>
     </div>
 
     <!-- Audio -->

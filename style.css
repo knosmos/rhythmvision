@@ -148,7 +148,11 @@ p{
 label, input[type=checkbox]{
     font-family: "Cascadia Code", "Trebuchet MS", Futura, monospace;
     font-size:14pt;
-    color:#98d1ff;
+    color:#ffffff;
+}
+
+label{
+    display:block;
 }
 
 /* SELECT */
@@ -165,7 +169,7 @@ button{
     border-radius:10px;
 }
 
-#select{
+#select, #settings{
     position:fixed;
     transform:translate(-50%, -50%);
     border:5px solid #126da1;
@@ -177,10 +181,28 @@ button{
     max-width:50%;
     border-radius:10px;
     transition: 1s top;
+    color: white;
+}
+
+hr{
+    border: none;
+    border-bottom: 2px solid #0d4b6e;
+    margin-top: 10px;
 }
 
 #select button{
     display: inline-block;
+}
+
+#settings button{
+    margin:2px;
+    display:inline-block;
+}
+
+a{
+    font-size:14pt;
+    color:#ffffff;
+    cursor:pointer;
 }
 
 /* SPLASH */
