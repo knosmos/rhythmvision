@@ -48,14 +48,16 @@
         <h1>rhythmvision</h1>
         <h2 style="color:white">Swing arms in direction of arrows.</h2>
         <h2>Select a song:</h2>
-        <button id="song-arroz" onclick="selectSong('arroz')">Arroz con Pollo</button>
+        <div style="display:contents" id="song-button-container">
+        </div>
+        <!--<button id="song-arroz" onclick="selectSong('arroz')">Arroz con Pollo</button>
         <button id="song-builder" onclick="selectSong('builder')">The Builder</button>
         <button id="song-airship" onclick="selectSong('airship')">Airship Serenity</button>
         <button id="song-cold" onclick="selectSong('cold')">Cold Funk</button>
         <button id="song-voxel" onclick="selectSong('voxel')">Voxel Revolution</button>
         <button id="song-maple" onclick="selectSong('maple')">Maple Leaf Rag</button>
         <button id="song-show" onclick="selectSong('show')">Welcome to the Show</button>
-        <button id="song-desert" onclick="selectSong('desert')">Desert of Lost Souls</button>
+        <button id="song-desert" onclick="selectSong('desert')">Desert of Lost Souls</button>-->
     </div>
 
     <!-- Settings -->
@@ -68,7 +70,7 @@
             Show Camera View
         </label>
         <label for="reducedgraphics">
-            <input type="checkbox" name="reducedgraphics" id="reducedgraphics" onchange="">
+            <input type="checkbox" name="reducedgraphics" id="reducedgraphics" onchange="reducedGraphics = this.checked">
             Reduced Graphics Mode
         </label>
         <hr>
@@ -107,6 +109,7 @@
     <script src=songs/voxel_revolution.js></script>
     <script src=songs/airship_serenity.js></script>
     <script src=songs/maple_leaf_rag.js></script>
+    <script src=songs/living_voyage.js></script>
 
     <script src=scripts/select.js></script>
 

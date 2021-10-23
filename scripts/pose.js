@@ -4,11 +4,16 @@ let canvasCtx = canvasElement.getContext('2d');
 let gestureDisplay = document.getElementById('gesture');
 
 let x_threshold = 0.15;
-let y_threshold = 0.45;
+let y_threshold = 0.15;
 let squat_threshold = 1.25;
 let kick_threshold = 0.15;
 
 let gesture = "none";
+let gesture_log = []; // log of previous 50 frames
+for (let i=0; i<10; i++) {
+    gesture_log.push("n"); // fill array
+}
+
 let loaded = false;
 
 let showCamera = true; // whether to overlay camera view on pose detection canvas
@@ -55,7 +60,7 @@ function onResults(results) {
         let x_diff = (leftHand.x - leftShoulder.x) + (rightHand.x - rightShoulder.x);
         let y_diff = (leftHand.y - leftShoulder.y) + (rightHand.y - rightShoulder.y);
         
-        // let s_diff = (leftKnee.y - leftShoulder.y) + (rightKnee.y - rightShoulder.y);
+        let s_diff = (leftKnee.y - leftShoulder.y) + (rightKnee.y - rightShoulder.y);
 
         let r_leg_diff = Math.abs(rightKnee.y - rightHip.y);
         let l_leg_diff = Math.abs(leftKnee.y - leftHip.y);
@@ -90,14 +95,16 @@ function onResults(results) {
         }
         
         if (squatForDown) {
-            let s_diff = r_leg_diff + l_leg_diff;
-            console.log (Math.abs(r_leg_diff-l_leg_diff));
+            // let s_diff = r_leg_diff + l_leg_diff;
+            // console.log (Math.abs(r_leg_diff-l_leg_diff));
             if (s_diff < squat_threshold && Math.abs(r_leg_diff-l_leg_diff) < 0.05){
                 gesture = "down";
             }
         }
 
-        gestureDisplay.innerHTML = gesture;        
+        gestureDisplay.innerHTML = gesture;
+        gesture_log.shift();
+        gesture_log.push(gesture[0]); 
     }
 }
 

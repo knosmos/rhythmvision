@@ -1,3 +1,5 @@
+let reducedGraphics = false;
+
 class Arrow{
     constructor(key){
         this.key = key;
@@ -24,8 +26,10 @@ class Arrow{
         setTimeout(()=>{
             // gets first letter of gesture from pose.js and checks against key
             if (gesture[0] == this.key){
+                if (!reducedGraphics) {    
+                    new Cloud(this.left);                    
+                }
                 new Message("fantastic!");
-                new Cloud(this.left);
                 score += 10 * multiplier;
                 consecutive += 1;
                 if (consecutive == 24){
@@ -46,11 +50,25 @@ class Arrow{
                 }
             }
             else{
-                new Message("miss!");
-                // score -= 2;
-                // score = Math.max(0, score);
-                consecutive = 0;
-                multiplier = 1;
+                if (gesture_log.includes(this.key)) {
+                    new Message("Good!");
+                    score += 5 * multiplier;
+                }
+                else {
+                    setTimeout(()=>{
+                        if (gesture_log.includes(this.key)){
+                            new Message("Good!");
+                            score += 6 * multiplier;
+                        }
+                        else{
+                            new Message("miss!");
+                            // score -= 2;
+                            // score = Math.max(0, score);
+                            consecutive = 0;
+                            multiplier = 1;                         
+                        }       
+                    }, 200);                    
+                }
             }
             document.getElementById("score").innerHTML = score;
             document.getElementById("arrow_parent").removeChild(this.elem);
@@ -68,10 +86,12 @@ class Message{
         this.elem.className = "message";
         parent.appendChild(this.elem);
 
-        setTimeout(()=>{
-            this.elem.style.transform = "translate(-50%, -50%) scale(1.5)";
-            this.elem.style.opacity = "0%";
-        },10);
+        if (!reducedGraphics) {
+            setTimeout(()=>{
+                this.elem.style.transform = "translate(-50%, -50%) scale(1.5)";
+                this.elem.style.opacity = "0%";
+            },10);            
+        }
         setTimeout(()=>{
             document.getElementById("arrow_parent").removeChild(this.elem);
         },3000);
