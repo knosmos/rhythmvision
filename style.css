@@ -169,6 +169,10 @@ button{
     border-radius:10px;
 }
 
+button:hover{
+    background-color:#12475c;
+}
+
 #select, #settings{
     position:fixed;
     transform:translate(-50%, -50%);
