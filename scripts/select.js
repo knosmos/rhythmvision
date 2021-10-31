@@ -25,7 +25,7 @@ function selectSong(song){
     if (!playing && loaded){
         track = songs[song][0];
         // selectElem.style.display = "none";
-        selectElem.style.top = "-50%";
+        selectElem.style.top = "-100%";
         selectMenuOpen = false;
         audio.pause();
         audio = new Audio(songs[song][1]);
@@ -56,10 +56,10 @@ backgroundmusic();
 
 // settings menu
 let settingsElem = document.getElementById("settings");
-settingsElem.style.top = "-50%";
+settingsElem.style.top = "-100%";
 
 function openSettings(){
-    selectElem.style.top = "-50%";
+    selectElem.style.top = "-100%";
     settingsElem.style.top = "50%";
 }
 
@@ -67,5 +67,5 @@ function closeSettings(){
     if (selectMenuOpen){
         selectElem.style.top = "50%";
     }
-    settingsElem.style.top = "-50%";
+    settingsElem.style.top = "-100%";
 }

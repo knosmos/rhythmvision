@@ -37,7 +37,7 @@
         <!-- Video output -->
         <div id="output_wrapper_wrapper">
             <div id="output_wrapper">
-                <canvas id="output_canvas"></canvas>
+                <canvas id="output_canvas" width=1280 height=720></canvas>
             </div>
             <h1>gesture: <span id=gesture style="color:white">loading</span></h1>    
         </div>
@@ -69,10 +69,12 @@
             <input type="checkbox" name="cameraview" id="cameraview" checked onchange="showCamera = this.checked">
             Show Camera View
         </label>
-        <label for="reducedgraphics">
+        <!--<label for="reducedgraphics">
             <input type="checkbox" name="reducedgraphics" id="reducedgraphics" onchange="reducedGraphics = this.checked">
             Reduced Graphics Mode
-        </label>
+        </label>-->
+        <label>Pose Estimation Accuracy</label>
+        <input type="range" min="0" max="2" value="1" class="slider" onchange="setPoseModelComplexity(parseInt(this.value))">
         <hr>
         <h2>motion</h2>
         <label for="squatfordown">

@@ -151,20 +151,19 @@ async function play(){
 
     // ready set go
     let dingsound = new Audio("assets/chime.wav");
+    dingsound.volume = 0.2;
     setTimeout(()=>{
         new Message("Ready!");
         dingsound.cloneNode().play();
+        setTimeout(()=>{
+            new Message("Set!");
+            dingsound.cloneNode().play();
+            setTimeout(()=>{
+                new Message("Dance!");
+                dingsound.cloneNode().play();
+            },1000);            
+        },1000);        
     },1000);
-
-    setTimeout(()=>{
-        new Message("Set!");
-        dingsound.cloneNode().play();
-    },2000);
-
-    setTimeout(()=>{
-        new Message("Dance!");
-        dingsound.cloneNode().play();
-    },3000);
 
     // Start falling notes
 

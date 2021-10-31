@@ -25,18 +25,24 @@ function onResults(results) {
     canvasCtx.save();
     canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
+    if (results.poseLandmarks) {
+        for (i = 0; i < 11; i++) {
+            results.poseLandmarks[i] = [NaN,NaN,NaN]; // remove facial landmarks
+        }    
+    }
+
     if (showCamera){
         canvasCtx.drawImage(
             results.image, 0, 0, canvasElement.width, canvasElement.height);    
         drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS,
-            {color: '#FF147D', lineWidth: 2});
+            {color: '#FF147D', lineWidth: 10});
     }
     else{
         canvasCtx.rect(0, 0, canvasElement.width, canvasElement.height);
         canvasCtx.fillStyle = "#042736";
         canvasCtx.fill();
         drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS,
-            {color: '#FF147D', lineWidth: 4});  
+            {color: '#FF147D', lineWidth: 20});  
         // drawLandmarks(canvasCtx, results.poseLandmarks,
         //     {color: '#FF147D', lineWidth: 1});      
     }
@@ -45,6 +51,7 @@ function onResults(results) {
     // pose detection
     if (results.poseLandmarks){
         loaded = true;
+
         let leftHand = results.poseLandmarks[15];
         let leftShoulder = results.poseLandmarks[11];
 
@@ -113,7 +120,7 @@ let pose = new Pose({locateFile: (file) => {
     return `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`;
 }});
 pose.setOptions({
-    modelComplexity: 1,
+    modelComplexity: 0,
     smoothLandmarks: true,
     enableSegmentation: true,
     smoothSegmentation: true,
@@ -121,6 +128,10 @@ pose.setOptions({
     minTrackingConfidence: 0.5
 });
 pose.onResults(onResults);
+
+function setPoseModelComplexity(complexity) {
+    pose.setOptions({modelComplexity: complexity});
+}
 
 let camera = new Camera(videoElement, {
   onFrame: async () => {

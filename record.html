@@ -17,7 +17,7 @@
             <img src=assets/logo.png id=logo>\
             <input id="songname" placeholder="Song Filename">
             <button onclick="setsong()">Start</button>
-            <button onclick="copytrack()">Copy Track to Clipboard</button>
+            <button onclick="copytrack()">Save Track</button>
         </div>
         <div id=arrow_container>
             <img src=assets/circles.png style="position:absolute;bottom:0;left:0;width:100%;">
@@ -26,7 +26,7 @@
         </div>
         <div id="output_wrapper_wrapper">
             <div id="output_wrapper">
-                <canvas id="output_canvas"></canvas>
+                <canvas id="output_canvas" width=1280 height=720></canvas>
             </div>
             <h1>gesture: <span id=gesture style="color:white">none</span></h1>    
         </div>
