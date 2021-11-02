@@ -1,5 +1,5 @@
 let track = [];
-let audio = "";
+let audio = new Audio();
 
 class Arrow{
     constructor(key){
@@ -85,9 +85,13 @@ async function start(){
 }
 
 function setsong(){
-    let filename = document.getElementById("songname").value;
-    audio = new Audio(filename);
-    start();
+    let musicFile = document.getElementById("custom-music").files[0];
+    let fileReader = new FileReader();
+    fileReader.readAsDataURL(musicFile);
+    fileReader.onload = function(e) {
+        audio.src=e.target.result;
+        start();
+    }
 }
 
 function download(filename, text) {
@@ -105,4 +109,10 @@ function download(filename, text) {
 function copytrack(){
     let track_str = JSON.stringify(track);
     navigator.clipboard.writeText(track_str);
+}
+
+function savetrack(){
+    let track_str = JSON.stringify(track);
+    let filename = "rhythmvision_track.json";
+    download(filename, track_str);
 }

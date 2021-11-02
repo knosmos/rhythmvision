@@ -94,6 +94,21 @@
         <button onclick='closeSettings()'>accept settings</button>
     </div>
 
+    <!-- Custom Song -->
+    <div id=custom>
+        <h1>custom song</h1>
+        <hr>
+        <button onclick="location.href='record.html'">Record Custom Track</button>
+        <hr>
+        <h2>Upload music file:</h2>
+        <input type="file" name="custom-music" id="custom-music" accept=".wav,.mp3">
+        <h2>Upload track file:</h2>
+        <input type="file" name="custom-track" id="custom-track" accept=".json">
+        <hr>
+        <button onclick="playCustom()">Play</button>
+        <button onclick="closeCustom()">Cancel</button>
+    </div>
+
     <!-- Audio -->
     <audio id="track">
         <source id="track-source" src="" type="audio/mp3">

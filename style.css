@@ -167,13 +167,14 @@ button{
     cursor:pointer;
     display:block;
     border-radius:10px;
+    margin-left:0px;
 }
 
 button:hover{
     background-color:#12475c;
 }
 
-#select, #settings{
+#select, #settings, #custom{
     position:fixed;
     transform:translate(-50%, -50%);
     border:5px solid #126da1;
@@ -201,6 +202,28 @@ hr{
 #settings button{
     margin:2px;
     display:inline-block;
+}
+
+input[type=file] {
+    color: white;
+    font-size: 12pt;
+    font-family: "Cascadia Code", "Trebuchet MS", Futura, monospace;
+}
+
+input[type=file]::file-selector-button {
+    border:4px solid #62b6e7;
+    background-color:#1a5f7a;
+    border-radius:10px;
+    padding:5px;
+    color: white;
+    font-size: 12pt;
+    margin-right:10px;
+    font-family: "Cascadia Code", "Trebuchet MS", Futura, monospace;
+}
+
+#custom button{
+    display:inline-block;
+    margin-left:0px;
 }
 
 a{
