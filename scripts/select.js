@@ -26,7 +26,7 @@ for (let song_name of Object.keys(songs)) {
     <button onclick="selectSong('${song_name}')">${song_name}</button>`;
 }
 document.getElementById("song-button-container").innerHTML += `
-    <button onclick="openCustom()">Custom...</button>`;
+    <button onclick="openCustom()" style="border:4px solid #62b6e7;background-color:#1a5f7a">Custom...</button>`;
 
 function selectSong(song){
     console.log(playing);
