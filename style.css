@@ -232,6 +232,10 @@ a{
     cursor:pointer;
 }
 
+input[type=range]{
+    background-color: rgba(255, 255, 255, 0.26);
+}
+
 /* SPLASH */
 #splash{
     position:absolute;

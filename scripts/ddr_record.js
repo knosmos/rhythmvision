@@ -55,7 +55,7 @@ async function play(){
     audio.play();
     let start_time = Date.now();
     let accumulated_time = 0;
-    let old_gesture = "none";
+    let old_gesture = "up";
     while (true){
         if (old_gesture != gesture & gesture != "none"){
             new Arrow(gesture[0]);
@@ -113,6 +113,9 @@ function copytrack(){
 
 function savetrack(){
     let track_str = JSON.stringify(track);
-    let filename = "rhythmvision_track.json";
+    let track_name = document.getElementById("custom-music").files[0].name;
+    track_name = track_name.split(".")[0];
+    track_name = track_name.replace(/ /g, "_");
+    let filename = `${track_name}_track.json`;
     download(filename, track_str);
 }
